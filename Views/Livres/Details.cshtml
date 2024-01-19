@@ -1,0 +1,64 @@
+﻿@model biblio.Models.Livre
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Livre</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Titre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Titre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Auteur)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Auteur)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Resume)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Resume)
+        </dd>
+        <dt class="col-sm-2">
+            <h6>Etat</h6>
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.EstEmprunte == true)
+            {
+                <div>
+                    Emprunté
+                </div>
+            }
+            else if (Model.EstEmprunte == false)
+            {
+                <div>
+                    Disponible
+                </div>
+            }
+            else
+            {
+                <div>
+                    WE DONT
+                </div>
+            }
+
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">
+        <i class="fas fa-edit">Edit</i>
+
+    </a>
+ 
+    <a asp-action="Index" class="btn btn-info">Back to List</a>
+</div>

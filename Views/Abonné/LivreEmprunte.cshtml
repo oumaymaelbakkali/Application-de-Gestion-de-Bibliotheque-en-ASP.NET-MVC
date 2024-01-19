@@ -1,0 +1,42 @@
+﻿@model IEnumerable<biblio.Models.Livre>
+
+@{
+    ViewData["Title"] = "LivreEmprunte";
+}
+
+<h1>Les Livres Emprunte par @ViewData["SubscriberName"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Auteur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Resume)
+            </th>
+            
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var livre in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => livre.Titre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => livre.Auteur)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => livre.Resume)
+                </td>
+               
+            </tr>
+        }
+    </tbody>
+</table>
